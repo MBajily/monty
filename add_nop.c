@@ -6,7 +6,7 @@
  *
  * @head: the head of stack
  * @counter: line number
- * 
+ *
  * Return: None
 */
 void f_add(stack_t **head, unsigned int counter)
