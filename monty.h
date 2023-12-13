@@ -39,8 +39,9 @@ typedef struct instruction_s
 } instruction_t;
 
 
-void zero_push(stack_t **head, unsigned int number);
-void zero_pall(stack_t **head, unsigned int number);
-void one_pint(stack_t **head, unsigned int number);
+void cleanup_and_exit(stack_t **head)
+void f_push(stack_t **head, unsigned int number);
+void f_pall(stack_t **head, unsigned int number);
+void f_pint(stack_t **head, unsigned int number);
 
 #endif

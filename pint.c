@@ -1,6 +1,18 @@
 #include "monty.h"
 
 
+/**
+ * cleanup_and_exit - Performs cleanup tasks and exits the program with a failure status.
+ * @head: Pointer to the head of the stack.
+ *
+ * This function is responsible for performing necessary cleanup tasks before
+ * exiting the program in case of an error. It closes the file, frees the memory
+ * allocated for the content, and cleans up the stack by freeing all nodes.
+ * It is intended to be called when an error occurs and the program needs to exit
+ * gracefully.
+ *
+ * @head: Pointer to the head of the stack.
+ */
 void cleanup_and_exit(stack_t **head)
 {
     fclose(bus.file);
@@ -9,13 +21,14 @@ void cleanup_and_exit(stack_t **head)
     exit(EXIT_FAILURE);
 }
 
+
 /**
  * f_push - add new node to stack
  * @head: head of stack
  * @counter: line number
  * Return: None
  */
-void zero_push(stack_t **head, unsigned int counter)
+void f_push(stack_t **head, unsigned int counter)
 {
     int n, j = 0, flag = 0;
 
@@ -46,18 +59,22 @@ void zero_push(stack_t **head, unsigned int counter)
         add_queue(head, n);
 }
 
+
 /**
  * f_pall - prints the current stack
  * @head: the head of stack
  * @counter: null
  * Return: none
  */
-void zero_pall(stack_t **head, unsigned int counter)
+void f_pall(stack_t **head, unsigned int counter)
 {
     stack_t *h;
     (void)counter;
 
     h = *head;
+    if (h == NULL)
+		return;
+
     while (h)
     {
         printf("%d\n", h->n);
@@ -71,7 +88,7 @@ void zero_pall(stack_t **head, unsigned int counter)
  * @counter: line number
  * Return: none
  */
-void one_pint(stack_t **head, unsigned int counter)
+void f_pint(stack_t **head, unsigned int counter)
 {
     if (*head == NULL)
     {
