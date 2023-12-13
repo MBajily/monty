@@ -1,60 +1,82 @@
-#include <stdio.h>
-#include <stdlib.h>
-#define STACK_SIZE 100
+#include "monty.h"
 
-int stack[STACK_SIZE];
-int top = -1;
-void push(int value)
+
+void cleanup_and_exit(stack_t **head)
 {
-	if (top == STACK_SIZE - 1)
-	{
-		printf("Stack overflow\n");
-		exit(EXIT_FAILURE);
-	}
-	top++;
-	stack[top] = value;
+    fclose(bus.file);
+    free(bus.content);
+    free_stack(*head);
+    exit(EXIT_FAILURE);
 }
 
-
-void pall()
+/**
+ * f_push - add new node to stack
+ * @head: head of stack
+ * @counter: line number
+ * Return: None
+ */
+void zero_push(stack_t **head, unsigned int counter)
 {
-	int i;
-	
-	for (i = top; i >= 0; i--)
-	{
-		printf("%d\n", stack[i]);
-	}
+    int n, j = 0, flag = 0;
+
+    if (bus.arg)
+    {
+        if (bus.arg[0] == '-')
+            j++;
+        for (; bus.arg[j] != '\0'; j++)
+        {
+            if (bus.arg[j] > '9' || bus.arg[j] < '0')
+                flag = 1;
+        }
+        if (flag == 1)
+        {
+            fprintf(stderr, "L%d: usage: push integer\n", counter);
+            cleanup_and_exit(head);
+        }
+    }
+    else
+    {
+        fprintf(stderr, "L%d: usage: push integer\n", counter);
+        cleanup_and_exit(head);
+    }
+    n = atoi(bus.arg);
+    if (bus.lifi == 0)
+        add_node(head, n);
+    else
+        add_queue(head, n);
 }
 
-int main()
+/**
+ * f_pall - prints the current stack
+ * @head: the head of stack
+ * @counter: null
+ * Return: none
+ */
+void zero_pall(stack_t **head, unsigned int counter)
 {
-	FILE *file = fopen("input.txt", "r");
-	char opcode[5];
-	int argument;
-	int line_number = 1;
+    stack_t *h;
+    (void)counter;
 
-	if (file == NULL)
-	{
-		printf("File not found\n");
-		return (1);
-	}
-	while (fscanf(file, "%s %d", opcode, &argument) == 2)
-	{
-		if (strcmp(opcode, "push") == 0)
-		{
-			push(argument);
-		}
-		else if (strcmp(opcode, "pall") == 0)
-		{
-			pall();
-		}
-		else
-		{
-			printf("Unknown opcode at line %d\n", line_number);
-			return (1);
-		}
-		line_number++;
-	}
-	fclose(file);
-	return (0);
+    h = *head;
+    while (h)
+    {
+        printf("%d\n", h->n);
+        h = h->next;
+    }
+}
+
+/**
+ * f_pint - prints the top
+ * @head: the head of the stack
+ * @counter: line number
+ * Return: none
+ */
+void one_pint(stack_t **head, unsigned int counter)
+{
+    if (*head == NULL)
+    {
+        fprintf(stderr, "L%u: can't pint, stack empty\n", counter);
+        cleanup_and_exit(head);
+    }
+    printf("%d\n", (*head)->n);
 }
