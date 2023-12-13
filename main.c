@@ -1,6 +1,7 @@
 #include "monty.h"
 
 
+bus_t bus = {NULL, NULL, NULL, 0};
 /**
 * main - code interpreter
 *
@@ -11,7 +12,6 @@
 */
 int main(int argc, char *argv[])
 {
-	bus_t bus = {NULL, NULL, NULL, 0};
 	char *cont;
 	FILE *f;
 	size_t s = 0;
