@@ -80,27 +80,17 @@ void add_node(stack_t **head, int n)
  */
 void f_push(stack_t **head, unsigned int counter)
 {
-    int n, j = 0, flag = 0;
+    int n, i = 0, f = 0;
 
     if (bus.arg)
     {
         if (bus.arg[0] == '-')
-        {
-            j++;
-        }
-        for (; bus.arg[j] != '\0'; j++)
-        {
-            if (bus.arg[j] > '9' || bus.arg[j] < '0')
-            {
-                flag = 1;
-            }
-        }
-        if (flag == 1)
-        {
+            i++;
+        for (; bus.arg[i] != '\0'; i++)
+            if (bus.arg[i] > '9' || bus.arg[i] < '0')
+                f = 1;
+        if (f == 1)
             fprintf(stderr, "L%d: usage: push integer\n", counter);
-
-            
-        }
     }
     else
     {
@@ -109,13 +99,9 @@ void f_push(stack_t **head, unsigned int counter)
     }
     n = atoi(bus.arg);
     if (bus.lifi == 0)
-    {
         add_node(head, n);
-    }
     else
-    {
         add_queue(head, n);
-    }
 }
 
 
@@ -134,16 +120,14 @@ void f_pall(stack_t **head, unsigned int counter)
 
     h = *head;
     if (h == NULL)
-    {
 		return;
-    }
-
     while (h)
     {
         printf("%d\n", h->n);
         h = h->next;
     }
 }
+
 
 /**
  * f_pint - prints the top
@@ -158,7 +142,6 @@ void f_pint(stack_t **head, unsigned int counter)
     if (*head == NULL)
     {
         fprintf(stderr, "L%u: can't pint, stack empty\n", counter);
-
         cleanup_and_exit(head);
     }
     printf("%d\n", (*head)->n);
