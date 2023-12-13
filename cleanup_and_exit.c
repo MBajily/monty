@@ -15,8 +15,8 @@
  */
 void cleanup_and_exit(stack_t **head)
 {
-    fclose(bus.file);
-    free(bus.content);
-    free_stack(*head);
-    exit(EXIT_FAILURE);
+	fclose(bus.file);
+	free(bus.content);
+	free_stack(*head);
+	exit(EXIT_FAILURE);
 }
