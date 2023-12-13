@@ -37,7 +37,7 @@ int main(int argc, char *argv[])
 	{
 		cont = NULL;
 		line_number = getline(&cont, &s, f);
-		bus.cont = cont;
+		bus.content = cont;
 		n++;
 		if (line_number > 0)
 		{

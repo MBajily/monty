@@ -105,7 +105,7 @@ void f_push(stack_t **head, unsigned int counter)
     else
     {
         fprintf(stderr, "L%d: usage: push integer\n", counter);
-        void cleanup_and_exit(head);
+        cleanup_and_exit(head);
     }
     n = atoi(bus.arg);
     if (bus.lifi == 0)
@@ -159,7 +159,7 @@ void f_pint(stack_t **head, unsigned int counter)
     {
         fprintf(stderr, "L%u: can't pint, stack empty\n", counter);
 
-        void cleanup_and_exit(head);
+        cleanup_and_exit(head);
     }
     printf("%d\n", (*head)->n);
 }
