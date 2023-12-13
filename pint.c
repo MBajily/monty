@@ -82,18 +82,18 @@ void f_pall(stack_t **head, unsigned int counter)
     }
 }
 
-/**
- * f_pint - prints the top
- * @head: the head of the stack
- * @counter: line number
- * Return: none
- */
-void f_pint(stack_t **head, unsigned int counter)
-{
-    if (*head == NULL)
-    {
-        fprintf(stderr, "L%u: can't pint, stack empty\n", counter);
-        cleanup_and_exit(head);
-    }
-    printf("%d\n", (*head)->n);
-}
+// /**
+//  * f_pint - prints the top
+//  * @head: the head of the stack
+//  * @counter: line number
+//  * Return: none
+//  */
+// void f_pint(stack_t **head, unsigned int counter)
+// {
+//     if (*head == NULL)
+//     {
+//         fprintf(stderr, "L%u: can't pint, stack empty\n", counter);
+//         cleanup_and_exit(head);
+//     }
+//     printf("%d\n", (*head)->n);
+// }
