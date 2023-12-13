@@ -61,22 +61,38 @@ typedef struct bus_s
 extern bus_t bus;
 
 
+/* execute module */ 
 int execute(char *content, stack_t **stack, unsigned int counter, FILE *file);
 
-void add_queue(stack_t **head, int n);
-void add_node(stack_t **head, int n);
+
+/* free stack module */ 
 void free_stack(stack_t *head);
 
+
+/* cleanup_and_exit module */ 
 void cleanup_and_exit(stack_t **head);
+
+
+/* zero_one module */ 
 void f_push(stack_t **head, unsigned int number);
 void f_pall(stack_t **head, unsigned int number);
 void f_pint(stack_t **head, unsigned int number);
-ssize_t getline(char **lineptr, size_t *n, FILE *stream);
+void add_queue(stack_t **head, int n);
+void add_node(stack_t **head, int n);
 
+
+/* pop_swap module */ 
 void f_pop(stack_t **head, unsigned int counter);
 void f_swap(stack_t **head, unsigned int counter);
 
+
+/* add_nop module */ 
 void f_add(stack_t **head, unsigned int counter);
 void f_nop(stack_t **head, unsigned int counter);
+void f_sub(stack_t **head, unsigned int counter);
+
+
+ssize_t getline(char **lineptr, size_t *n, FILE *stream);
+
 
 #endif

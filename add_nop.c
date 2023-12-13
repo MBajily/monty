@@ -34,6 +34,32 @@ void f_add(stack_t **head, unsigned int counter)
 
 
 /**
+ * f_sub- subtracts the top element of the stack
+ * from the second top element of the stack.
+ * @head: head pointer
+ * @counter: line number
+*/
+void f_sub(stack_t **head, unsigned int counter)
+{
+	stack_t *hd;
+	int sub_value, nodes_count;
+
+	hd = *head;
+	for (nodes_count = 0; hd != NULL; nodes_count++)
+		hd = hd->next;
+	if (nodes_count < 2)
+	{
+		fprintf(stderr, "L%d: can't sub, stack too short\n", counter);
+		cleanup_and_exit(head);
+	}
+	hd = *head;
+	sub_value = hd->next->n - hd->n;
+	hd->next->n = sub_value;
+	*head = hd->next;
+	free(hd);
+}
+
+/**
   * f_nop- do nothing
   *
   * @head: the head of stack
