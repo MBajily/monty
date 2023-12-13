@@ -24,14 +24,13 @@ int execute(char *content, stack_t **stack, unsigned int counter, FILE *file)
 
 	operation = strtok(content, " \n\t");
 	if (operation && operation[0] == '#')
-	{
 		return (0);
-	}
 	bus.arg = strtok(NULL, " \n\t");
 	while (opCodeList[n].opcode && operation)
 	{
 		if (strcmp(operation, opCodeList[n].opcode) == 0)
-		{	opCodeList[n].f(stack, counter);
+		{
+			opCodeList[n].f(stack, counter);
 			return (0);
 		}
 		n++;

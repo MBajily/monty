@@ -3,7 +3,7 @@
 
 /**
 * free_stack - frees linked list
-* 
+*
 * @head: the head of stack
 */
 void free_stack(stack_t *head)
