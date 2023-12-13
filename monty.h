@@ -38,8 +38,29 @@ typedef struct instruction_s
 	void (*f)(stack_t **stack, unsigned int line_number);
 } instruction_t;
 
+/**
+ * struct bus_s - variables -args, file, line content
+ *
+ * @arg: argument value
+ * @file: points to the file
+ * @content: line content
+ * @lifi: change stack to queue
+ *
+ * Description: carries values through the program
+ */
+typedef struct bus_s
+{
+	char *arg;
+	FILE *file;
+	char *content;
+	int lifi;
+}  bus_t;
+extern bus_t bus;
+
+
 void add_queue(stack_t **head, int n);
 void add_node(stack_t **head, int n);
+void free_stack(stack_t *head);
 
 void cleanup_and_exit(stack_t **head);
 void f_push(stack_t **head, unsigned int number);
