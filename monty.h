@@ -57,6 +57,7 @@ typedef struct bus_s
 }  bus_t;
 extern bus_t bus;
 
+int execute(char *content, stack_t **stack, unsigned int counter, FILE *file);
 
 void add_queue(stack_t **head, int n);
 void add_node(stack_t **head, int n);
