@@ -2,8 +2,6 @@
 
 
 bus_t bus = {NULL, NULL, NULL, 0};
-
-
 /**
 * main - code interpreter
 *
@@ -40,13 +38,10 @@ int main(int argc, char *argv[])
 		bus.content = cont;
 		n++;
 		if (line_number > 0)
-		{
 			execute(cont, &stack, n, f);
-		}
 		free(cont);
 	}
 	free_stack(stack);
 	fclose(f);
-
 	return (0);
 }

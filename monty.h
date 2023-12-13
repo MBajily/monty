@@ -7,6 +7,8 @@
 #include <fcntl.h>
 #include <string.h>
 #include <ctype.h>
+
+
 /**
  * struct stack_s - doubly linked list representation of a stack (or queue)
  * @n: integer
@@ -38,6 +40,7 @@ typedef struct instruction_s
 	void (*f)(stack_t **stack, unsigned int line_number);
 } instruction_t;
 
+
 /**
  * struct bus_s - variables -args, file, line content
  *
@@ -56,6 +59,7 @@ typedef struct bus_s
 	int lifi;
 }  bus_t;
 extern bus_t bus;
+
 
 int execute(char *content, stack_t **stack, unsigned int counter, FILE *file);
 
