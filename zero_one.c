@@ -16,16 +16,12 @@ void add_queue(stack_t **head, int n)
 	AX = *head;
 	newNode = malloc(sizeof(stack_t));
 	if (newNode == NULL)
-	{
 		printf("Error\n");
-	}
 	newNode->n = n;
 	newNode->next = NULL;
 	if (AX)
-	{
 		while (AX->next)
 			AX = AX->next;
-	}
 	if (!AX)
 	{
 		*head = newNode;
