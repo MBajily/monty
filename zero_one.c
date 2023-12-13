@@ -2,7 +2,7 @@
 
 
 /**
- * addqueue - add new node to the tail of stack
+ * add_queue - add new node to the tail of stack
  *
  * @n: new value
  * @head: the head of stack
@@ -36,7 +36,7 @@ void add_queue(stack_t **head, int n)
 
 
 /**
- * addnode - add node to stack
+ * add_node - add node to stack
  *
  * @head: the head of stack
  * @n: new value

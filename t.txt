@@ -1,0 +1,10 @@
+push 45
+push 72
+push 79
+pall
+push 75
+pint
+pop
+pint
+pop
+pint
