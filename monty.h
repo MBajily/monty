@@ -38,6 +38,8 @@ typedef struct instruction_s
 	void (*f)(stack_t **stack, unsigned int line_number);
 } instruction_t;
 
+void add_queue(stack_t **head, int n);
+void add_node(stack_t **head, int n);
 
 void cleanup_and_exit(stack_t **head);
 void f_push(stack_t **head, unsigned int number);
