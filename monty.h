@@ -95,6 +95,7 @@ void f_mod(stack_t **head, unsigned int counter);
 
 /* string_operations module */
 void f_pchar(stack_t **head, unsigned int counter);
+void f_pstr(stack_t **head, unsigned int counter);
 
 ssize_t getline(char **lineptr, size_t *n, FILE *stream);
 
