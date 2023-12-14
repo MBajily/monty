@@ -86,11 +86,11 @@ void f_pop(stack_t **head, unsigned int counter);
 void f_swap(stack_t **head, unsigned int counter);
 
 
-/* add_nop module */ 
+/* math_operations module */ 
 void f_add(stack_t **head, unsigned int counter);
 void f_nop(stack_t **head, unsigned int counter);
 void f_sub(stack_t **head, unsigned int counter);
-
+void f_div(stack_t **head, unsigned int counter);
 
 ssize_t getline(char **lineptr, size_t *n, FILE *stream);
 
