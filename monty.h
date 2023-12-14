@@ -88,6 +88,7 @@ void f_pint(stack_t **head, unsigned int number);
 
 /* stack_operations module */ 
 void f_rotl(stack_t **head, unsigned int counter);
+void f_rotr(stack_t **head, unsigned int counter);
 
 
 /* math_operations module */ 
