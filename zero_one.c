@@ -143,3 +143,17 @@ void f_pint(stack_t **head, unsigned int counter)
 	printf("%d\n", (*head)->n);
 }
 
+
+/**
+  * f_nop- do nothing
+  *
+  * @head: the head of stack
+  * @counter: line number
+  *
+  * Return: none
+ */
+void f_nop(stack_t **head, unsigned int counter)
+{
+	(void) head;
+	(void) counter;
+}

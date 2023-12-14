@@ -165,16 +165,3 @@ void f_mod(stack_t **head, unsigned int counter)
 }
 
 
-/**
-  * f_nop- do nothing
-  *
-  * @head: the head of stack
-  * @counter: line number
-  *
-  * Return: none
- */
-void f_nop(stack_t **head, unsigned int counter)
-{
-	(void) head;
-	(void) counter;
-}
