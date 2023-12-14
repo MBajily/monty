@@ -129,6 +129,43 @@ void f_mul(stack_t **head, unsigned int counter)
 
 
 /**
+ * f_mod - computes the rest of the division of the
+ * second top element of the stack by the top element of the stack.
+ * @head: stack head pointer
+ * @counter: line number
+*/
+void f_mod(stack_t **head, unsigned int counter)
+{
+	stack_t *hd;
+	int len = 0, AX;
+
+	hd = *head;
+	while (hd)
+	{
+		hd = hd->next;
+		len++;
+	}
+	if (len < 2)
+	{
+		fprintf(stderr, "L%d: can't mod, stack too short\n", counter);
+		cleanup_and_exit(head);
+	}
+
+	hd = *head;
+	if (hd->n == 0)
+	{
+		fprintf(stderr, "L%d: division by zero\n", counter);
+		cleanup_and_exit(head);
+	}
+
+	AX = hd->next->n % hd->n;
+	hd->next->n = AX;
+	*head = hd->next;
+	free(hd);
+}
+
+
+/**
   * f_nop- do nothing
   *
   * @head: the head of stack
