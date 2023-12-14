@@ -74,21 +74,19 @@ void cleanup_and_exit(stack_t **head);
 
 
 /* zero_one module */ 
+void add_queue(stack_t **head, int n);
+void add_node(stack_t **head, int n);
+void f_nop(stack_t **head, unsigned int counter);
+
+/* stack_operations module */ 
+void f_pop(stack_t **head, unsigned int counter);
+void f_swap(stack_t **head, unsigned int counter);
 void f_push(stack_t **head, unsigned int number);
 void f_pall(stack_t **head, unsigned int number);
 void f_pint(stack_t **head, unsigned int number);
-void add_queue(stack_t **head, int n);
-void add_node(stack_t **head, int n);
-
-
-/* pop_swap module */ 
-void f_pop(stack_t **head, unsigned int counter);
-void f_swap(stack_t **head, unsigned int counter);
-
 
 /* math_operations module */ 
 void f_add(stack_t **head, unsigned int counter);
-void f_nop(stack_t **head, unsigned int counter);
 void f_sub(stack_t **head, unsigned int counter);
 void f_div(stack_t **head, unsigned int counter);
 void f_mul(stack_t **head, unsigned int counter);
