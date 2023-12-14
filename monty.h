@@ -85,6 +85,11 @@ void f_push(stack_t **head, unsigned int number);
 void f_pall(stack_t **head, unsigned int number);
 void f_pint(stack_t **head, unsigned int number);
 
+
+/* stack_operations module */ 
+void f_rotl(stack_t **head, unsigned int counter);
+
+
 /* math_operations module */ 
 void f_add(stack_t **head, unsigned int counter);
 void f_sub(stack_t **head, unsigned int counter);
