@@ -97,6 +97,37 @@ void f_div(stack_t **head, unsigned int counter)
 }
 
 
+
+/**
+ * f_mul - multiplies the second top element of
+ * the stack with the top element of the stack.
+ * @head: stack head pointer
+ * @counter: line number
+*/
+void f_mul(stack_t **head, unsigned int counter)
+{
+	stack_t *hd;
+	int nodes_count = 0, AX;
+
+	hd = *head;
+	while (hd)
+	{
+		hd = hd->next;
+		nodes_count++;
+	}
+	if (nodes_count < 2)
+	{
+		fprintf(stderr, "L%d: can't mul, stack too short\n", counter);
+		cleanup_and_exit(head);
+	}
+	hd = *head;
+	AX = hd->next->n * hd->n;
+	hd->next->n = AX;
+	*head = hd->next;
+	free(hd);
+}
+
+
 /**
   * f_nop- do nothing
   *
